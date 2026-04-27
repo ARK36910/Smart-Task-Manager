@@ -1,17 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanillaTask</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div id="app-title">♦ VanillaTask</div>
 
-<div class="container2">
-    <h2>Dashboard</h2>
-    <p>Login successful.</p>
-    <a href="login.html">Logout</a>
+        <div class="header-right">
+            <button id="add-task-btn">+ Add Task</button>
+
+            <div class="profile-section">
+                <div id="profile-icon">A</div>
+                <span id="username">Ananya</span>
+                <button id="logout-btn">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-board">
+        <div class="column" id="todo-column">
+            <div class="column-header">
+                <div class="column-title">
+                    <span class="dot blue">●</span> To Do
+                </div>
+                <div class="task-count" id="todo-count">2</div>
+            </div>
+            <div class="task-list" id="todo-list"></div>
+            <div class="add-task-placeholder" onclick="showAddTaskModal('todo')">+ Add task</div>
+        </div>
+
+        <div class="column" id="inprogress-column">
+            <div class="column-header">
+                <div class="column-title">
+                    <span class="dot yellow">●</span> In Progress
+                </div>
+                <div class="task-count" id="inprogress-count">2</div>
+            </div>
+            <div class="task-list" id="inprogress-list"></div>
+            <div class="add-task-placeholder" onclick="showAddTaskModal('inprogress')">+ Add task</div>
+        </div>
+
+        <div class="column" id="done-column">
+            <div class="column-header">
+                <div class="column-title">
+                    <span class="dot green">●</span> Done
+                </div>
+                <div class="task-count" id="done-count">1</div>
+            </div>
+            <div class="task-list" id="done-list"></div>
+            <div class="add-task-placeholder" onclick="showAddTaskModal('done')">+ Add task</div>
+        </div>
+    </div>
 </div>
 
+<div id="task-modal" class="modal">
+    <div class="modal-content">
+        <h2>New Task</h2>
+
+        <label>Task Title</label>
+        <input type="text" id="task-title" placeholder="Enter task name">
+
+        <label>Description</label>
+        <textarea id="task-desc" rows="3" placeholder="Brief description..."></textarea>
+
+        <label>Priority</label>
+        <select id="task-priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+        </select>
+
+        <div class="modal-buttons">
+            <button id="add-task-confirm">Add Task</button>
+            <button id="cancel-task">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
 </body>
 </html>
